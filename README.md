@@ -15,7 +15,7 @@ ___
 
 ___
 ####Things I'm working on adding
-- **COMMENTS!** I haven't added comments at all (hence still under contstruction). This is #1 on my list.
+- **Comments:** I've only added page level PHPDoc Comments. Need to document objects/methods/vars.
 - **Models:** Implementing a base model that does get, post, and delete based on table name and key=>val array, and example models.
 - **Controllers:** Building out the base controller, and adding example controllers.
 - **Documentation** Replacing this stuff with actual documentation for setup/usage.
