@@ -13,9 +13,9 @@
 		public function delete() {
 			
 		}
-		public function get() {
-			
-		}
+		//CONTACT GET: USES Controller\User:get
+		//public function get() { }
+
 		public function getAll() {
 			
 		}
