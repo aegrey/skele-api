@@ -1,4 +1,6 @@
 <?php
+	namespace Controller;
+
 	/**
 	* SkeleAPI - User Controller Object
 	*
@@ -12,19 +14,46 @@
 	* 
 	*/
 
-	namespace Controller;
-
 	class User extends \Controller\Base {	
 
-		public function add() {
+		/**
+	 	* METHOD: add
+	 	* @uses   string $_POST['email'] Form Post e-mail     
+	 	* @uses   string $_POST['user']  Form Post username   
+	 	* @uses   string $_POST['pass']  Form Post password 
+	 	* @uses   string $_POST['phone'] Form Post phone number     
+	 	* @return array                  Success or Error Response
+	 	*/
+	 	public function add() {
 
 		}
-		public function edit() {
+		
+		/**
+	 	* METHOD: edit
+	 	* @uses   string $_POST['email'] Form Post e-mail     
+	 	* @uses   string $_POST['user']  Form Post username   
+	 	* @uses   string $_POST['pass']  Form Post password 
+	 	* @uses   string $_POST['phone'] Form Post phone number     
+	 	* @return array                  Success or Error Response
+	 	*/
+	 	public function edit() {
 			
 		}
+
+		/**
+	 	* METHOD: delete
+	 	* @param  int   $id  ID of user
+	 	* @return array      Success or Error Response
+	 	*/
 		public function delete() {
 			
 		}
+
+		/**
+	 	* METHOD: get
+	 	* @param  int   $id  ID of user
+	 	* @return array      User Data or Error Response
+	 	*/
 		public function get() {
 			
 			//TEST DATA TO TEST FUNCTIONALITY
@@ -35,12 +64,32 @@
 			);
 			$this->app->render('', $data, 200);
 		}
+
+		/**
+	 	* METHOD: login   
+	 	* @uses   string $_POST['user']  Form Post username   
+	 	* @uses   string $_POST['pass']  Form Post password   
+	 	* @return array                  Session Key or Error Response
+	 	*/
 		public function login() {
 			
 		}
-		public function logout() {
+
+		/**
+	 	* METHOD: logout
+	 	* @param  int   $id  ID of user
+	 	* @return array      Success or Error Response
+	 	*/
+	 	public function logout() {
 			
 		}
+
+		/**
+	 	* METHOD: getAuth
+	 	* @param  int    $id     ID of user
+	 	* @param  string $token  App Token
+	 	* @return array          Success or Error Response
+	 	*/
 		public function getAuth() {
 			
 		}

@@ -1,4 +1,7 @@
 <?php
+	namespace Api;
+	use Api\Config;
+
 	/**
 	* SkeleAPI - Database Object
 	*
@@ -16,15 +19,17 @@
 	* 
 	*/
 
-	namespace Api;
-
-	use Api\Config;
-
 	class Database {	
 		
+		/** @var object $conn Database connection object */
 		public $conn;
 
-		private function __construct() {
+		/**
+	 	* Constructor
+	 	* Sets up database connection.
+	 	* @return void
+	 	*/
+	 	private function __construct() {
 			$host = Config::getPrivate('db.host');
 			$user = Config::getPrivate('db.user');
 			$pass = Config::getPrivate('db.pass');
@@ -41,7 +46,12 @@
 			}
 		}
 
-		public function getConn() {
+		/**
+	 	* METHOD: getConn
+	 	* Returns the database connection
+	 	* @return object $this->conn Database Connection
+	 	*/
+	 	public function getConn() {
 			return $this->conn;
 		}
 

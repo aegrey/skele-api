@@ -1,4 +1,6 @@
 <?php
+	namespace Controller;
+
 	/**
 	* SkeleAPI - Base Controller Object
 	*
@@ -12,10 +14,16 @@
 	* 
 	*/
 	
-	namespace Controller;
-
 	class Base {	
-		public function __construct() {
+		
+		/**
+	 	* Constructor
+	 	* Assigns Slim app instance
+	 	* @return void
+	 	*/
+	 	public function __construct() {
+			
+			/** @var object $this->app Application Instance */
 			$this->app = \Slim\Slim::getInstance();
 		}
 	}

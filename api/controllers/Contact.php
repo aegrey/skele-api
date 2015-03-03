@@ -16,19 +16,31 @@
 
 	class Contact {	
 
-		public function add() {
+		/**
+	 	* METHOD: add
+	 	* @uses   string $_POST['email'] Form Post e-mail     
+	 	* @uses   string $_POST['phone'] Form Post phone number     
+	 	* @return int                    Contact ID or Error Response
+	 	*/
+	 	public function add() {
 			
 		}
-		public function edit() {
-			
-		}
-		public function delete() {
-			
-		}
-		//CONTACT GET: USES Controller\User:get
-		//public function get() { }
 
-		public function getAll() {
+		/**
+	 	* METHOD: delete
+	 	* @param  int   $id  ID of contact
+	 	* @return array      Success or Error Response
+	 	*/
+		public function delete($id) {
+			
+		}
+
+		/**
+	 	* METHOD: getAll
+	 	* @param  int   $id  ID of user
+	 	* @return array      All Contacts or Error Response
+	 	*/
+	 	public function getAll() {
 			
 		}
 	}

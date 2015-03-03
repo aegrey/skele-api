@@ -1,4 +1,6 @@
 <?php
+	namespace Api;
+
 	/**
 	* SkeleAPI - Config Object
 	*
@@ -14,22 +16,45 @@
 	* 
 	*/
 
-	namespace Api;
-
 	class Config {	
 
+		/** @var array $private private config array */
 		static private $private;
+		/** @var array $public  public config array */
 		static private $public;
 
-		public function addPrivate($key, $val) {
+		/**
+	 	* METHOD: addPrivate
+	 	* Sets private config item
+	 	*
+	 	* @param  string $key Config Key
+	 	* @param  string $val Config Value
+	 	* @return void
+	 	*/
+	 	public function addPrivate($key, $val) {
 			self::$private[$key] = $val;
 		}
 
-		public function addPublic($key, $val) {
+		/**
+	 	* METHOD: addPublic
+	 	* Sets public config item
+	 	*
+	 	* @param  string $key Config Key
+	 	* @param  string $val Config Value
+	 	* @return void
+	 	*/
+	 	public function addPublic($key, $val) {
 			self::$public[$key] = $val;
 		}
 
-		public function getPrivate($key) {
+		/**
+	 	* METHOD: getPrivate
+	 	* Gets private config item
+	 	*
+	 	* @param  string $key Config Key
+	 	* @return string      Config item value
+	 	*/
+	 	public function getPrivate($key) {
 			if(isset(self::$private[$key])) {
 				return self::$private[$key];
 			} else {
@@ -37,7 +62,14 @@
 			}
 		}
 
-		public function getPublic($key) {
+		/**
+	 	* METHOD: getPublic
+	 	* Gets public config item
+	 	*
+	 	* @param  string $key Config Key
+	 	* @return string      Config item value
+	 	*/
+	 	public function getPublic($key) {
 			if(isset(self::$public[$key])) {
 				return self::$public[$key];
 			} else {

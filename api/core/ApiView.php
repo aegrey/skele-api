@@ -1,6 +1,8 @@
 <?php
+	namespace Api;
+
 	/**
-	* SkeleAPI - ApiView Custom View
+	* SkeleAPI - ApiView Object
 	*
 	* Custom view for Slim that processes data array into JSON.
 	* CHANGES: No changes required. 
@@ -16,16 +18,25 @@
 	* 
 	*/
 
-	namespace Api;
-	
-	/**
-	 * OBJECT: ApiView
-	 */
 	class ApiView extends \Slim\View {	
-		
-		public function render($template) {
+
+		/**
+	 	* METHOD: render
+	 	* Renders custom view template
+	 	*
+	 	* @param  string $template            NOT USED (Custom Template File)
+	 	* @param  array  $this->data->result  Data Array to be processed
+	 	* @param  int    $this->data->status  HTTP Status Code
+	 	* @return void
+	 	*/
+		public function render($template, $data = null, $status = 200) {
 			
-			//process data
+			//Set Status
+			if(isset($this->data->status)) {
+				$status = $this->data->status;
+			}
+
+			//Set JSON Data
 			if(isset($this->data->result)) {
 				$jsondata = json_encode($this->data->result);
 			} else {
@@ -33,14 +44,14 @@
 				$data = '{ "error": "No Data Received" }';
 			}
 
-			//set headers and content
+			//Set Status, Headers, and Data Response
 			$this->app = \Slim\Slim::getInstance();
 			$response = $this->app->response;
 			$response->setStatus($status);
 			$response->headers->set('Content-Type','application/json');
 			$response->setBody($jsondata);
 
-			//all data is rendered, stop the app
+			//Stop App after load
 			$this->app->stop();
 		}
 
