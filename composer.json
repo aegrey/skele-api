@@ -1,0 +1,27 @@
+{
+    "name": "SkeleAPI for Slim Framework",
+    "description": "A lightweight REST API skeleton for quick and easy API development using Slim.",
+    "version": "0.1",
+    "type": "framework",
+    "keywords": ["PHP", "Slim", "Framework", "API", "Lightweight", "Object Oriented", "MVC", "Slim API", "Template", "Skeleton"],
+    "homepage": "https://github.com/aegrey/skeleapi",
+    "time": "2015-03-02",
+    "license": "GPLv3",
+    "authors": [{
+    	"name": "aegrey",
+    	"homepage": "http://www.mesmergroup.net"
+    }],
+
+    "require": {
+        "php": ">=5.3.0",
+        "slim/slim": "2.*"
+    },
+
+    "autoload": {
+    	"psr-4": {
+    		"Api\\": "api/core/",
+    		"Controller\\": "api/controllers",
+    		"Model\\": "api/models"
+    	}
+    }
+}
