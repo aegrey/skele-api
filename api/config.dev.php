@@ -1,4 +1,22 @@
 <?php
+	/**
+	* SkeleAPI - Development Config
+	*
+	* Sets all relevant config for the development environment.
+	* CHANGES: Do not remove current keys. Change values to your environment variables. 
+	* ADD: Add any new config if required for your API.
+	* EXAMPLES: 
+	* Private config items: <code>Config::addPrivate('key', 'val');</code>
+	* Public config items: <code>Config::addPublic('key', 'val');</code>
+	*
+	* @category SkeleAPI
+	* @package /api/config.dev.php
+	* @see /api/load.php For all app tags
+	* @uses \Slim\Slim Slim Framework
+	* @uses \Api\Config Controls config values
+	* 
+	*/
+
 	use Api\Config;
 
 	Config::addPrivate('db.host', 'localhost');

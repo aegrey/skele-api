@@ -1,6 +1,26 @@
 <?php
+	/**
+	* SkeleAPI - ApiView Custom View
+	*
+	* Custom view for Slim that processes data array into JSON.
+	* CHANGES: No changes required. 
+	* EXCEPT: Custom error message on line 27
+	*
+	* @category SkeleAPI
+	* @package Api
+	* @subpackage ApiView
+	* @see /api/load.php For all app tags
+	* @uses \Slim\Slim Slim Framework
+	* @uses \Slim\View Slim View Object
+	* @todo Finish object/method/var documentation
+	* 
+	*/
+
 	namespace Api;
 	
+	/**
+	 * OBJECT: ApiView
+	 */
 	class ApiView extends \Slim\View {	
 		
 		public function render($template) {

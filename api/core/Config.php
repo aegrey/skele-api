@@ -1,10 +1,23 @@
 <?php
+	/**
+	* SkeleAPI - Config Object
+	*
+	* Controls configuration data
+	* CHANGES: No changes required.
+	*
+	* @category SkeleAPI
+	* @package Api
+	* @subpackage Config
+	* @see /api/load.php For all app tags
+	* @uses \Slim\Slim Slim Framework
+	* @todo Finish object/method/var documentation
+	* 
+	*/
+
 	namespace Api;
 
-	//Config Object
 	class Config {	
-		
-		//set holders for both private and public config items
+
 		static private $private;
 		static private $public;
 

@@ -1,7 +1,19 @@
 <?php
+	/**
+	* SkeleAPI - Contact Controller Object
+	*
+	* Contacts Object & Methods
+	*
+	* @category SkeleAPI
+	* @package Controller
+	* @subpackage Contact
+	* @see /api/load.php For all app tags
+	* @uses \Slim\Slim Slim Framework
+	* 
+	*/
+
 	namespace Controller;
 
-	//Config Object
 	class Contact {	
 
 		public function add() {
