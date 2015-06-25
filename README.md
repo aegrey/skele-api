@@ -8,7 +8,7 @@ ___
 ####Some features of this library
 - **MVC:** Utilizes models and controllers for API organization. The view is a single view template that processes JSON based on an array. There is no functionality for static pages - it's specifically for APIs.
 - **Object Oriented:** Primarily OO design and PSR-4 autoload for controllers and models to minimize "require" calls.
-- **Lightweight:** This is built to be as lightweight and quick as possible, with very simple code. It uses no additional vendor libraries but Composer & Slim. I decided against ORM for increased performance, and also a bit less setup.
+- **Lightweight:** This is built to be as lightweight and quick as possible, with very simple code. It uses no additional vendor libraries but Composer & Slim. I'm debating on including an ORM library.
 - **Manual Routes:** This doesn't have the usual "get post delete" route setup seen in many API frameworks. Routes are set manually - I did this because it's a bit quicker for me, allows for custom route naming, and doesn't setup methods that you're not using/don't want to be accidentally used.
 - **Multiple Environments:** The config does a check for dev/prod environments to load config for each, and is easily updated to add more.
 - **Easy Setup:** For dev running on localhost, just change config and it's good to go. You can then setup your routes, and start building your controllers and models.
@@ -30,7 +30,7 @@ ___
 ####Updates In Progress
 - **Documentation** Creating actual documentation for setup/usage.
 - **Code Cleanup:** Cleaning up code & adding comments.
-- **Models:** I'd like to create a simpler way to handle models, such as default add/edit/delete functionality, but I'll probably architect that in the future (suggestions welcome!)
+- **Models:** I'd like to create a simpler way to handle models, maybe adding ORM
 - **Auth Tokens:** I am building this specifically for a mobile app, so tokens are generated within the API, but I haven't implemented storage/usage. In my build, all controllers require an auth token, so I'll be calling api\Auth in the base controller. This can easily be removed from base and put into only the controllers that require auth to access. Auth can also be easily removed if you don't need it.
 - **Session/Cookies** - User tracking via sessions & cookies.
 - **Security:** Implementing additional security functionality
