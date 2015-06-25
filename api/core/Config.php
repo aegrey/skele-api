@@ -54,7 +54,7 @@
 	 	* @param  string $key Config Key
 	 	* @return string      Config item value
 	 	*/
-	 	public function getPrivate($key) {
+	 	public static function getPrivate($key) {
 			if(isset(self::$private[$key])) {
 				return self::$private[$key];
 			} else {
@@ -69,7 +69,7 @@
 	 	* @param  string $key Config Key
 	 	* @return string      Config item value
 	 	*/
-	 	public function getPublic($key) {
+	 	public static function getPublic($key) {
 			if(isset(self::$public[$key])) {
 				return self::$public[$key];
 			} else {

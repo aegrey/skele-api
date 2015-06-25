@@ -25,21 +25,21 @@
 		public $conn;
 
 		/**
-	 	* Constructor
-	 	* Sets up database connection.
+	 	* Method: OpenConn
+	 	* Opens database connection.
 	 	* @return void
 	 	*/
-	 	private function __construct() {
+	 	private function openConn() {
 			$host = Config::getPrivate('db.host');
 			$user = Config::getPrivate('db.user');
 			$pass = Config::getPrivate('db.pass');
 			$data = Config::getPrivate('db.database');
 			$port = Config::getPrivate('db.port');
 			$char = Config::getPrivate('db.char');
-			$dsn = 'mysql:host=$host;port=$port;dbname=$data;charset=$char';
+			$dsn = 'mysql:host=$host;port=$port;dbname=$data';
 
 			try {
-				$this->conn = new PDO($dsn, $user, $pass);
+				$this->conn = new \PDO($dsn, $user, $pass);
 				$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			} catch(PDOException $e) {
 				error_log($e->getMessage(), 0);
@@ -52,6 +52,7 @@
 	 	* @return object $this->conn Database Connection
 	 	*/
 	 	public function getConn() {
+			openConn();
 			return $this->conn;
 		}
 
