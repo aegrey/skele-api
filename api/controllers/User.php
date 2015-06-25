@@ -1,5 +1,6 @@
 <?php
 	namespace Controller;
+	use \Model\User as UserModel;
 
 	/**
 	* SkeleAPI - User Controller Object
@@ -54,14 +55,13 @@
 	 	* @param  int   $id  ID of user
 	 	* @return array      User Data or Error Response
 	 	*/
-		public function get() {
+		public function get($id) {
 			
-			//TEST DATA TO TEST FUNCTIONALITY
+			$user = new UserModel();
 			$data = array(
-				'result' => array(
-					'message' => 'worked',
-					'now' => 'go eat')
+				'result' => $user->get($id)
 			);
+			
 			$this->app->render('', $data, 200);
 		}
 

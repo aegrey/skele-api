@@ -21,8 +21,8 @@
 
 	class Database {	
 		
-		/** @var object $conn Database connection object */
-		public $conn;
+		/** @var object $dbconn Database connection object */
+		public $dbconn;
 
 		/**
 	 	* Method: OpenConn
@@ -30,17 +30,18 @@
 	 	* @return void
 	 	*/
 	 	private function openConn() {
-			$host = Config::getPrivate('db.host');
-			$user = Config::getPrivate('db.user');
-			$pass = Config::getPrivate('db.pass');
-			$data = Config::getPrivate('db.database');
-			$port = Config::getPrivate('db.port');
-			$char = Config::getPrivate('db.char');
-			$dsn = 'mysql:host=$host;port=$port;dbname=$data';
+			$dbhost = Config::getPrivate('db.host');
+			$dbuser = Config::getPrivate('db.user');
+			$dbpass = Config::getPrivate('db.pass');
+			$dbname = Config::getPrivate('db.database');
+			$dbport = Config::getPrivate('db.port');
+			$dbchar = Config::getPrivate('db.char');
+			$dsn = 'mysql:host='.$dbhost.';port='.$dbport.';dbname='.$dbname;
 
 			try {
-				$this->conn = new \PDO($dsn, $user, $pass);
-				$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$this->dbconn = new \PDO($dsn, $dbuser, $dbpass);
+				$this->dbconn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+				$this->dbconn->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
 			} catch(PDOException $e) {
 				error_log($e->getMessage(), 0);
 			}
@@ -49,11 +50,11 @@
 		/**
 	 	* METHOD: getConn
 	 	* Returns the database connection
-	 	* @return object $this->conn Database Connection
+	 	* @return object $this->dbconn Database Connection
 	 	*/
 	 	public function getConn() {
 			openConn();
-			return $this->conn;
+			return $this->dbconn;
 		}
 
 	}
