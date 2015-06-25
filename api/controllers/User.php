@@ -18,6 +18,21 @@
 	class User extends \Controller\Base {	
 
 		/**
+	 	* METHOD: get
+	 	* @param  int   $id  ID of user
+	 	* @return array      User Data or Error Response
+	 	*/
+		public function get($id) {
+			
+			$user = new UserModel();
+			$data = array(
+				'result' => $user->get($id)
+			);
+			
+			$this->app->render('', $data, 200);
+		}
+
+		/**
 	 	* METHOD: add
 	 	* @uses   string $_POST['email'] Form Post e-mail     
 	 	* @uses   string $_POST['user']  Form Post username   
@@ -43,26 +58,11 @@
 
 		/**
 	 	* METHOD: delete
-	 	* @param  int   $id  ID of user
+	 	* @param  int   $_POST['id']  ID of user
 	 	* @return array      Success or Error Response
 	 	*/
 		public function delete() {
 			
-		}
-
-		/**
-	 	* METHOD: get
-	 	* @param  int   $id  ID of user
-	 	* @return array      User Data or Error Response
-	 	*/
-		public function get($id) {
-			
-			$user = new UserModel();
-			$data = array(
-				'result' => $user->get($id)
-			);
-			
-			$this->app->render('', $data, 200);
 		}
 
 		/**
@@ -80,7 +80,7 @@
 	 	* @param  int   $id  ID of user
 	 	* @return array      Success or Error Response
 	 	*/
-	 	public function logout() {
+	 	public function logout($id) {
 			
 		}
 
@@ -90,7 +90,7 @@
 	 	* @param  string $token  App Token
 	 	* @return array          Success or Error Response
 	 	*/
-		public function getAuth() {
+		public function getAuth($id, $token) {
 			
 		}
 	}
