@@ -22,14 +22,15 @@
 	class Database {	
 		
 		/** @var object $dbconn Database connection object */
-		public $dbconn;
+		protected $dbconn;
+
+		public function __construct() {}
 
 		/**
-	 	* Method: OpenConn
-	 	* Opens database connection.
-	 	* @return void
+	 	* METHOD: openConn
+	 	* Opens the database connection
 	 	*/
-	 	private function openConn() {
+		protected function openConn() {
 			$dbhost = Config::getPrivate('db.host');
 			$dbuser = Config::getPrivate('db.user');
 			$dbpass = Config::getPrivate('db.pass');
@@ -53,8 +54,19 @@
 	 	* @return object $this->dbconn Database Connection
 	 	*/
 	 	public function getConn() {
-			openConn();
+			if(!isset($this->dbconn)) {
+				$this->openConn();
+			}
 			return $this->dbconn;
+		}
+
+		/**
+	 	* METHOD: closeConn
+	 	* Closes the database connection
+	 	* @return void
+	 	*/
+	 	public function closeConn() {
+			$this->dbconn = null; 
 		}
 
 	}
