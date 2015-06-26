@@ -14,7 +14,7 @@
 	* 
 	*/
 
-	use \Controller;
+	use \Controller\User;
 	
 	//ROUTES for \Controller\User - /api/controllers/User.php 
 	$app->get('/user/:id', '\Controller\User:get');

@@ -40,7 +40,7 @@
 			$dsn = 'mysql:host='.$dbhost.';port='.$dbport.';dbname='.$dbname;
 
 			try {
-				$this->dbconn = new \PDO($dsn, $dbuser, $dbpass);
+				$this->dbconn = new \PDO($dsn, $dbuser, $dbpass, array(\PDO::ATTR_PERSISTENT => true));
 				$this->dbconn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 				$this->dbconn->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
 			} catch(PDOException $e) {

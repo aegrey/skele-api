@@ -19,17 +19,25 @@
 
 		/**
 	 	* METHOD: get
-	 	* @param  int   $id  ID of user
-	 	* @return array      User Data or Error Response
+	 	* @param  int   $_SESSION  ID of user
+	 	* @return array            User Data or Error Response
+	 	* @todo remove test ID
+	 	* @todo Add further security
 	 	*/
-		public function get($id) {
+		public function get() {
 			
-			$user = new UserModel();
-			$data = array(
-				'result' => $user->get($id)
-			);
-			
+			$id = 1; //TEMP FOR TESTING! REMOVE THIS!
+
+			if(isset($_SESSION['id'])) {
+				$id = $_SESSION['id'];
+				$user = new UserModel();
+				$data = array('result' => $user->get($id));
+			} else {
+				$data = array('result' => array('error' => 'Access Denied! Please login.'));
+			}
+
 			$this->app->render('', $data, 200);
+
 		}
 
 		/**

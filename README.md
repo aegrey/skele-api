@@ -30,7 +30,7 @@ For prod:
 ___
 ####Updates In Progress
 - **Documentation** Creating actual documentation for setup/usage.
-- **Code Cleanup:** Cleaning up code & adding comments.
+- **App Cleanup:** Cleaning up comments to fully conform with PHPDoc, and optimizing code.
 - **Auth:** Implementing oAuth as middleware (easily removed).
 - **User Sessions** - Create user sessions for API users.
 - **Security:** Implementing additional security functionality.
