@@ -24,9 +24,9 @@
 
 		/**
 	 	* METHOD: login   
-	 	* @uses   string $_POST['email']  Form Post username   
-	 	* @uses   string $_POST['pass']   Form Post password   
-	 	* @return array                   Session Key or Error Response
+	 	* @uses   string $_POST['email']      Form Post username   
+	 	* @uses   string $_POST['password']   Form Post password   
+	 	* @return array                       Session Key or Error Response
 	 	*/
 		public function login() {
 
@@ -38,12 +38,12 @@
 				$result['error'] = 'email'; 
 				$code = 403;
 
-			} else if($post['pass'] != $user['password']) {
+			} else if($post['password'] != $user['password']) {
 				//user record, wrong password
 				$result['error'] = 'password'; 
 				$code = 403;
 
-			} else if($post['pass'] == $user['password']) {
+			} else if($post['password'] == $user['password']) {
 
 				//user confirmed, set auth key
 				try {

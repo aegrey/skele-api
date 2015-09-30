@@ -42,11 +42,11 @@
 
 		/**
 	 	* METHOD: add
-	 	* @uses   string $_POST['email'] Form Post e-mail     
-	 	* @uses   string $_POST['user']  Form Post username   
-	 	* @uses   string $_POST['pass']  Form Post password 
-	 	* @uses   string $_POST['phone'] Form Post phone number     
-	 	* @return array                  Success or Error Response
+	 	* @uses   string $_POST['email']     Form Post e-mail     
+	 	* @uses   string $_POST['user']      Form Post username   
+	 	* @uses   string $_POST['password']  Form Post password 
+	 	* @uses   string $_POST['phone']     Form Post phone number     
+	 	* @return array                      Success or Error Response
 	 	*/
 	 	public function add() {
 
@@ -54,11 +54,11 @@
 		
 		/**
 	 	* METHOD: edit
-	 	* @uses   string $_POST['email'] Form Post e-mail     
-	 	* @uses   string $_POST['user']  Form Post username   
-	 	* @uses   string $_POST['pass']  Form Post password 
-	 	* @uses   string $_POST['phone'] Form Post phone number     
-	 	* @return array                  Success or Error Response
+	 	* @uses   string $_POST['email']     Form Post e-mail     
+	 	* @uses   string $_POST['user']      Form Post username   
+	 	* @uses   string $_POST['password']  Form Post password 
+	 	* @uses   string $_POST['phone']     Form Post phone number     
+	 	* @return array                      Success or Error Response
 	 	*/
 	 	public function edit() {
 			
@@ -67,7 +67,7 @@
 		/**
 	 	* METHOD: delete
 	 	* @param  int   $_POST['id']  ID of user
-	 	* @return array      Success or Error Response
+	 	* @return array               Success or Error Response
 	 	*/
 		public function delete() {
 			
