@@ -24,12 +24,11 @@
 	 	* METHOD: render
 	 	* Renders custom view template
 	 	*
-	 	* @param  string $template            NOT USED (Custom Template File)
 	 	* @param  array  $this->data->result  Data Array to be processed
 	 	* @param  int    $this->data->status  HTTP Status Code
 	 	* @return void
 	 	*/
-		public function render($template, $data = null, $status = 200) {
+		public function render($template = '', $data = null, $status = 200) {
 			
 			//Set Status
 			if(isset($this->data->status)) {
@@ -46,10 +45,16 @@
 
 			//Set Status, Headers, and Data Response
 			$this->app = \Slim\Slim::getInstance();
-			$response = $this->app->response;
-			$response->setStatus($status);
-			$response->headers->set('Content-Type','application/json');
-			$response->setBody($jsondata);
+			
+			try {
+				$response = $this->app->response;
+				$response->setStatus($status);
+				$response->headers->set('Content-Type','application/json');
+				$response->setBody($jsondata);
+
+			} catch(Exception $e) {
+				print_r('{ "error": "'.$e.'" }');
+			}
 
 			//Stop App after load
 			$this->app->stop();

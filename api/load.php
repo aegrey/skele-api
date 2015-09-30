@@ -18,9 +18,13 @@
 	* 
 	*/
 
+	session_cache_limiter(false);
+	session_start();
+	
 	require __DIR__ . '/../vendor/autoload.php';
 	require 'config.php';
 
+	use Api\Auth;
 	use Api\ApiView;
 	use Api\Config;
 
@@ -29,6 +33,7 @@
 		'debug' => Config::getPublic('api.debug'),
 		'view' => new Api\ApiView()
 	));
+	$app->add(new Api\Auth());
 
 	//Load Routes
 	require 'routes.php';

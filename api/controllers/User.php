@@ -17,27 +17,27 @@
 
 	class User extends \Controller\Base {	
 
+		function __construct() {
+			parent::__construct();
+			$this->userModel = new UserModel();
+		}
+
 		/**
 	 	* METHOD: get
 	 	* @param  int   $_SESSION  ID of user
 	 	* @return array            User Data or Error Response
-	 	* @todo remove test ID
-	 	* @todo Add further security
+	 	* @todo Add try catch
 	 	*/
-		public function get() {
-			
-			$id = 1; //TEMP FOR TESTING! REMOVE THIS!
+		public function get($id) {
+			$code = 200;
+			$user = $this->userModel->get($id);
 
-			if(isset($_SESSION['id'])) {
-				$id = $_SESSION['id'];
-				$user = new UserModel();
-				$data = array('result' => $user->get($id));
-			} else {
-				$data = array('result' => array('error' => 'Access Denied! Please login.'));
+			if(!$user) {
+				$user['error'] = 'no_result';
+				$code = 403;
 			}
-
-			$this->app->render('', $data, 200);
-
+			$data = array('result' => $user);
+			$this->app->render('', $data, $code);
 		}
 
 		/**
@@ -70,35 +70,6 @@
 	 	* @return array      Success or Error Response
 	 	*/
 		public function delete() {
-			
-		}
-
-		/**
-	 	* METHOD: login   
-	 	* @uses   string $_POST['user']  Form Post username   
-	 	* @uses   string $_POST['pass']  Form Post password   
-	 	* @return array                  Session Key or Error Response
-	 	*/
-		public function login() {
-			
-		}
-
-		/**
-	 	* METHOD: logout
-	 	* @param  int   $id  ID of user
-	 	* @return array      Success or Error Response
-	 	*/
-	 	public function logout($id) {
-			
-		}
-
-		/**
-	 	* METHOD: getAuth
-	 	* @param  int    $id     ID of user
-	 	* @param  string $token  App Token
-	 	* @return array          Success or Error Response
-	 	*/
-		public function getAuth($id, $token) {
 			
 		}
 	}

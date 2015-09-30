@@ -16,18 +16,19 @@
 
 	class User extends \Model\Base {	
 		
-		private $table = "users";
+		private $table     = "users";
 		private $joinTable = "users_friends"; //allows for a 2nd relational table
 
-		public $publicFields = array('username', 'first_name', 'last_name', 'email');
-		private $privateFields = array('auth_key','password');
+		public  $publicFields  = array('first_name', 'last_name', 'email', 'phone');
+		private $privateFields = array('password', 'auth_key');
+		private $loginFields   = array('id', 'email', 'password', 'auth_key');
 
 		public $joinTableFields = array('user_id', 'friend_id');
 
 		/**
 		* ------
 		* GROUP: Retrieve Methods
-		* For retrieving user records, and community associations
+		* For retrieving user records
 		*/
 
 		/**
@@ -38,6 +39,30 @@
 	 	*/
 		public function get($id) {
 			$sql = "SELECT ". implode(", ", $this->publicFields) ." FROM ". $this->table ." WHERE id = " . $id;
+			$query = $this->conn->query($sql);			
+			return $query->fetch();
+		}
+
+		/**
+	 	* METHOD: auth
+	 	* Check auth
+	 	* @param  int   $id  ID of record
+	 	* @return array      Auth Key
+	 	*/
+		public function auth($id) {
+			$sql = "SELECT ". implode(", ", $this->loginFields) ." FROM ". $this->table ." WHERE id = " . $id;
+			$query = $this->conn->query($sql);			
+			return $query->fetch();
+		}
+
+		/**
+	 	* METHOD: login
+	 	* Check login
+	 	* @param  array  $email  Email
+	 	* @return array          User Data
+	 	*/
+		public function login($email) {
+			$sql = "SELECT ". implode(", ", $this->loginFields) ." FROM ". $this->table ." WHERE email = '" . $email . "'";
 			$query = $this->conn->query($sql);			
 			return $query->fetch();
 		}
@@ -103,8 +128,7 @@
 	 			$data[':'.$key] = $value;
 	 		}
 	 		$sql = rtrim($sql, ",");
-	 		$sql = $sql . " WHERE id = :id";
-
+	 		$sql = $sql . " WHERE id = " . $id;
 	 		$query = $this->conn->prepare($sql);
 	 		return $query->execute($data);
 	 	}

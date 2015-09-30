@@ -20,15 +20,15 @@
 	use Api\Config;
 
 	//ADD CONFIG - Private Vars
-	Config::addPrivate('db.host', 'localhost');
-	Config::addPrivate('db.user', 'root');
+	Config::addPrivate('db.host', '');
+	Config::addPrivate('db.user', '');
 	Config::addPrivate('db.pass', '');
-	Config::addPrivate('db.database', 'test');
+	Config::addPrivate('db.database', '');
 	Config::addPrivate('db.port', '');
 	Config::addPrivate('db.char', 'UTF-8');
 
 	//ADD CONFIG - Public Vars
-	Config::addPublic('api.name', 'Test');
-	Config::addPublic('api.url', 'http://localhost');
+	Config::addPublic('api.name', 'API Prod');
+	Config::addPublic('api.url', '');
 	Config::addPublic('api.debug', FALSE);
 ?>

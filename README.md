@@ -15,13 +15,8 @@ ___
 
 ___
 ####To Use
-1. run `composer install` in the main directory to install slim
+1. run `./composer.phar install` in the main directory to install slim
 2. change your config.dev.php and config.prod.php to your environment(s) info
-
-To run the "out of the box" test:
-- Make sure your database has a "users" table with one record in it with an id (1).
-- Update the "Users" model with your table fields.
-- Navigate to http://#YOUR_URL#/public/index.php/user/1 
 
 For prod:
 - Make sure your prod server directory points to the "public" folder.

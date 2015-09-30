@@ -15,13 +15,15 @@
 	*/
 
 	use \Controller\User;
+	use \Controller\Login;
 	
 	//ROUTES for \Controller\User - /api/controllers/User.php 
 	$app->get('/user/:id', '\Controller\User:get');
 	$app->post('/user/add', '\Controller\User:add'); 
 	$app->post('/user/edit', '\Controller\User:edit');
 	$app->post('/user/delete', '\Controller\User:delete');
-	$app->post('/user/login', '\Controller\User:login');
-	$app->get('/user/logout', '\Controller\User:logout');
+
+	$app->post('/login', '\Controller\Login:login');
+	$app->get('/logout', '\Controller\Login:logout');
 	
 ?>
