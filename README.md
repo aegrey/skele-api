@@ -28,6 +28,10 @@ ___
 
 ---
 
+AngularJS Framework and other Angular extensions is used within this framework and are subject to their own licenses and copyright laws. Please refer to the respective code libaries for more information.
+
+---
+
 <sup>Skele-API is a base API skeleton to help with a quickstart of an API. It uses the SLIM framework.</sup>
 
 <sup>Copyright (C) 2015  Ann Eliese Grey</sup>
